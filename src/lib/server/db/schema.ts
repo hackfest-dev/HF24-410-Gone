@@ -3,14 +3,14 @@ import { integer, sqliteTable, text, primaryKey } from 'drizzle-orm/sqlite-core'
 
 export const userTable = sqliteTable('user',{
     id:text("id").primaryKey(),
-    username:text("username").notNull().unique(),
+    username:text("username").notNull(),
     password: text("password").notNull(),
     type:text('gender', { enum: ['User', 'Department'] }).notNull(),
 })
 
-export const regionTable = sqliteTable('department',{
-    region:text("id").notNull().unique().primaryKey(),
-    pincode: integer("pincode").notNull(),
+export const regionTable = sqliteTable('region',{
+    region:text("id"),
+    pincode: integer("pincode"),
     }, (table) => {
         return {
           pk: primaryKey({ columns: [table.region, table.pincode] }),
@@ -23,7 +23,7 @@ export const departmentTypeTable = sqliteTable("departmentType",{
 })
 
 export const departmentTable = sqliteTable('department',{
-    id:text("id").notNull().unique().primaryKey(),
+    id:text("id").primaryKey(),
     name:text("name").notNull(),
     scope:integer("scope").notNull(),
     type: text("type").references(() => departmentTypeTable.id).notNull(),
@@ -53,7 +53,7 @@ export const citizenTable = sqliteTable('citizen', {
 });
 
 export const postTable = sqliteTable('post', {
-    id:text("id").notNull().unique(),
+    id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
     title: text("title").notNull(),
     description: text("description").notNull(),
     latitude:text("latitude").notNull(),
@@ -61,7 +61,7 @@ export const postTable = sqliteTable('post', {
     pincode:integer("pincode"),
     image: text("image"),
     complaintType: text('complaintType', { enum: ['association', 'group', 'individual', 'individual'] }).notNull(),
-    departmentId: integer("departmentId").references(() => departmentTable.id).notNull(),
+    departmentType: integer("departmentId").references(() => departmentTypeTable.id).notNull(),
     userId: integer("author_id").references(() => userTable.id).notNull(),
     scope:integer("scope").default(1),
 	status: integer('status', { mode: 'boolean' }),
@@ -70,7 +70,7 @@ export const postTable = sqliteTable('post', {
         .notNull()
 });
 
-export const commemtsTable = sqliteTable('Comment', {
+export const commemtsTable = sqliteTable('comment', {
     id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
     userId: integer("user_id").references(() => userTable.id).notNull(),
     postId: integer("postId").references(() => postTable.id).notNull(),
@@ -83,7 +83,7 @@ export const commemtsTable = sqliteTable('Comment', {
 export const voteTable = sqliteTable('vote',{
     userId: integer("user_id").references(() => userTable.id).notNull(),
     postId: integer("postId").references(() => postTable.id).notNull(), 
-    choice:   integer('choice', { mode: 'boolean' }).default(true), 
+    choice :text('choice', { enum: ['upvote', 'downvote',"none"] }).default("none").notNull()
 }, (table) => {
     return {
       pk: primaryKey({ columns: [table.userId, table.postId] }),
