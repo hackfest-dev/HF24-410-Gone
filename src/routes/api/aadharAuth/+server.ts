@@ -2,7 +2,7 @@ import type { RequestHandler } from "@sveltejs/kit";
 
 const aadharDB = [
     {
-        "uid": "999941057058",
+        "aadhaarNo": "999941057058",
         "name": "Shivshankar Choudhury",
         "dob": "13-05-1968",
         "dobt": "V",
@@ -17,7 +17,7 @@ const aadharDB = [
         "pincode": "110002"
     },
     {
-        "uid": "999971658847",
+        "aadhaarNo": "999971658847",
         "name": "Kumar Agarwal",
         "dob": "04-05-1978",
         "dobt": "A",
@@ -34,7 +34,7 @@ const aadharDB = [
         "pincode": "313001"
     },
     {
-        "uid": "999933119405",
+        "aadhaarNo": "999933119405",
         "name": "Fatima Bedi",
         "dob": "30-07-1943",
         "dobt": "A",
@@ -56,7 +56,7 @@ export const POST: RequestHandler = async(event)=>{
 
     for (let i = 0; i < aadharDB.length; i++) {
         // Check if the uid property of the current object matches the given UID
-        if (aadharDB[i].uid === adharNo) {
+        if (aadharDB[i].aadhaarNo === adharNo) {
             // If a match is found, return true
             return new Response(JSON.stringify({
                 success:true

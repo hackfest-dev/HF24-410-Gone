@@ -1,19 +1,13 @@
 <script>
     import "../app.css";
     import Avatar from "$lib/components/avatar.svelte";
+    
 </script>
 
 
     <div class="topNavbar">
         <div class="img"></div>
         <Avatar/>
-    </div>
-
-    <div class="sideNavbar ">
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
     </div>
 
 <slot />
