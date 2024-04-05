@@ -20,7 +20,7 @@
         left: 2rem;
         width: 70px; /* Adjust as needed */
         height: 70vh;
-        background-color: #333;
+        background-color: linear-gradient(180deg, #1E293B 0%, #0F1726 100%);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -49,7 +49,7 @@
         padding: 2rem;
         height: 100%;
         width: 100%;
-        background-color: rgb(59, 58, 58);
+        background-color: #1E293B;
     }
     .topNavbar {
         
