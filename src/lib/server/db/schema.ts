@@ -1,10 +1,11 @@
-import { sql } from 'drizzle-orm'
+import { sql, type InferSelectModel } from 'drizzle-orm'
 import { integer, sqliteTable, text, primaryKey } from 'drizzle-orm/sqlite-core'
 
 export const userTable = sqliteTable('user',{
     id:text("id").primaryKey(),
     username:text("username").notNull().unique(),
     password: text("password").notNull(),
+    type:text('gender', { enum: ['User', 'Department'] }).notNull(),
 })
 
 export const regionTable = sqliteTable('department',{
@@ -16,13 +17,18 @@ export const regionTable = sqliteTable('department',{
         }
 }) 
 
+export const departmentTypeTable = sqliteTable("departmentType",{
+    id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
+    name: text("name").notNull().unique()
+})
+
 export const departmentTable = sqliteTable('department',{
     id:text("id").notNull().unique().primaryKey(),
     name:text("name").notNull(),
     scope:integer("scope").notNull(),
-    region: integer('region').references(() => regionTable.region).notNull()
+    type: text("type").references(() => departmentTypeTable.id).notNull(),
+    region: integer('region').references(() => regionTable.region).notNull(),
 })
-
 
 export const citizenTable = sqliteTable('citizen', {
     id:text("id").primaryKey(),
@@ -50,8 +56,9 @@ export const postTable = sqliteTable('post', {
     id:text("id").notNull().unique(),
     title: text("title").notNull(),
     description: text("description").notNull(),
-    latitude:text("latitude"),
-    longitude:text("longitude"),
+    latitude:text("latitude").notNull(),
+    longitude:text("longitude").notNull(),
+    pincode:integer("pincode"),
     image: text("image"),
     complaintType: text('complaintType', { enum: ['association', 'group', 'individual', 'individual'] }).notNull(),
     departmentId: integer("departmentId").references(() => departmentTable.id).notNull(),
