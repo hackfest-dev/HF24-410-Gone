@@ -11,6 +11,8 @@ declare global {
 	type Post = InferSelectModel<typeof postTable>
 	type departmentType = InferSelectModel<typeof departmentTypeTable>
 
+	type ComplaintType = 'association' | 'group' | 'individual'
+
 	namespace App {
 		// interface Error {}
 		interface Locals {

@@ -5,7 +5,7 @@ export const userTable = sqliteTable('user', {
     id: text("id").primaryKey(),
     username: text("username").notNull(),
     password: text("password").notNull(),
-    type: text('gender', { enum: ['Citizen', 'Department'] }).notNull(),
+    type: text('type', { enum: ['Citizen', 'Department'] }).notNull(),
 })
 
 export const regionTable = sqliteTable('region', {

@@ -1,12 +1,19 @@
 import { db } from '$lib/server/db/index.js'
-import { postTable } from '$lib/server/db/schema.js'
+import { departmentTypeTable, postTable } from '$lib/server/db/schema.js'
 import { fail } from '@sveltejs/kit'
 
-type ComplaintType = 'association' | 'group' | 'individual' | 'individual'
+export async function load() {
+    const deptartmentTypes =await db.select({
+        name:departmentTypeTable.name
+    }).from(departmentTypeTable)
+    
+    return { 
+        departmentTypes:deptartmentTypes.map(e=>e.name)
+     }
+  }
 
 export const actions = {
     default: async ({ request, locals }) => {
-
         let user = locals.user
         
         const formData = await request.formData()
@@ -16,8 +23,6 @@ export const actions = {
         const image = formData.get('image')?.toString()
         const complaintType= formData.get('complaintType')?.toString() as ComplaintType|undefined
         const departmentType= formData.get('departmentType')?.toString()
-       
-
 
         if (!title || !description || !pincode || !image || !complaintType || !departmentType) {
             return fail(400, { msg: "Please provide all values" })
@@ -28,7 +33,7 @@ export const actions = {
             description,
             latitude:"55",
             longitude:"55",
-            pincode:Number(pincode),
+            pincode:pincode,
             image,
             complaintType,
             departmentType: Number(departmentType),
@@ -37,6 +42,5 @@ export const actions = {
         })
 
         return {post, success: true }
-
     }
 }
