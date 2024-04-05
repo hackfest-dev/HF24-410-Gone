@@ -1,4 +1,4 @@
-import { verifyAuthJWT } from '$lib/server/auth/jwt';
+/* import { verifyAuthJWT } from '$lib/server/auth/jwt';
 import { redirect } from '@sveltejs/kit';
 
 export async function handle({ event, resolve}) {
@@ -18,4 +18,4 @@ export async function handle({ event, resolve}) {
     event.locals.user = user;
 
     return resolve(event)
-  }
+  } */
