@@ -60,7 +60,7 @@ export const actions: Actions = {
                 id:userId,
                 username:username,
 				password: hash,
-                type:"User"
+                type:"Citizen"
 			}).returning();
 
 			if (insertedUsers.length > 0) {
