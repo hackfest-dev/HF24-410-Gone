@@ -2,7 +2,7 @@
    /*  export let url; */
 </script>
 
-<div class="avatar">
+<div class=" ml-auto avatar h-6 w-6">
     <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
       <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
     </div>
