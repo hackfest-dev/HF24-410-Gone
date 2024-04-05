@@ -11,7 +11,7 @@
       left: 2rem;
       width: 70px; /* Adjust as needed */
       height: 70vh;
-      background-color: #333;
+      background-color: #e01313;
       display: flex;
       flex-direction: column;
       align-items: center;
