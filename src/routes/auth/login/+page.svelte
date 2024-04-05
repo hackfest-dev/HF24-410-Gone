@@ -27,9 +27,6 @@
     </div>
     <div class="toggle-container">
         <div class="toggle">
-            <div class="toggle-panel toggle-left">
-                
-            </div>
             <div class="toggle-panel toggle-right">
                 <h1>Not Registered yet??</h1>
                 <p>Register with your Aadhaar to join the community</p>
@@ -190,13 +187,10 @@
 
     .toggle {
         background-color: #334155;
-        height: 100%;
-        color: #fff;
         position: relative;
         left: -100%;
         height: 100%;
         width: 200%;
-        transform: translateX(0);
         transition: all 0.6s ease-in-out;
     }
 
@@ -215,7 +209,6 @@
         padding: 0 30px;
         text-align: center;
         top: 0;
-        transform: translateX(0);
         transition: all 0.6s ease-in-out;
     }
 

@@ -55,7 +55,7 @@
         left: 0;
         width: 100%;
         height: 70px;
-        background-color: #1E293B;
+        background-color: #1e293b;
         display: flex;
         justify-content: center;
         align-items: center;
