@@ -6,7 +6,7 @@
 
     <div class="topNavbar">
         <div class="img"></div>
-        <Avatar />
+        <Avatar/>
     </div>
 
     <div class="sideNavbar ">

@@ -3,20 +3,16 @@
     import Avatar from "./avatar.svelte";
 </script>
 
-<div class="card card-side bg-base-100 shadow-xl h-[8rem] w-[100%]">
-    <figure class="h-[7rem] w-auto max-w-[50%] bg-[#303645]">
-        <img class="h-auto w-auto" src={issue} alt="Movie" />
-    </figure>
-    <div class="card-body">
+<div class="card card-side bg-base-100 shadow-xl h-[10rem] w-[100%] ">
+    <div class=" w-[30%] bg-[#303645]">
+        <img class="h-full w-[100%] rounded-l-[12px]" src={issue} alt="Movie" />
+    </div>
+    <div class="card-body w-[60%] p-6 bg-black rounded-r-[12px]">
+        <h1 class="text-[30px]">water issue</h1>
         <div class="flex items-center gap-2">
-            <Avatar />
+            <Avatar/>
             <p>@rakshithx09</p>
         </div>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-            facilis quod ullam doloribus sequi deleniti adipisci provident cum
-            aut corrupti, at repudiandae voluptate esse soluta quos quasi, animi
-            reprehenderit reiciendis.
-        </p>
+        
     </div>
 </div>
