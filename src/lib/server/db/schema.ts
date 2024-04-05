@@ -1,15 +1,37 @@
 import { sql } from 'drizzle-orm'
-import { integer, sqliteTable, text, uniqueIndex, primaryKey } from 'drizzle-orm/sqlite-core'
+import { integer, sqliteTable, text, primaryKey } from 'drizzle-orm/sqlite-core'
 
-export const userTable = sqliteTable('user', {
-    id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
+export const userTable = sqliteTable('user',{
+    id:text("id").primaryKey(),
+    username:text("username").notNull().unique(),
+    password: text("password").notNull(),
+})
+
+export const regionTable = sqliteTable('department',{
+    region:text("id").notNull().unique().primaryKey(),
+    pincode: integer("pincode").notNull(),
+    }, (table) => {
+        return {
+          pk: primaryKey({ columns: [table.region, table.pincode] }),
+        }
+}) 
+
+export const departmentTable = sqliteTable('department',{
+    id:text("id").notNull().unique().primaryKey(),
+    name:text("name").notNull(),
+    scope:integer("scope").notNull(),
+    region: integer('region').references(() => regionTable.region).notNull()
+})
+
+
+export const citizenTable = sqliteTable('citizen', {
+    id:text("id").primaryKey(),
     aadhaarNo:text("aadhaarNo").notNull().unique(),
     dob:text("dob").notNull(),
     gender:text('gender', { enum: ['M', 'F'] }).notNull(),
     name: text("name").notNull(),
     phone:text("phone").notNull(),
     email: text("email").notNull().unique(),
-    password: text("password").notNull(),
     building: text("building"),
     landmark: text("landmark"),
     street: text("street"),
@@ -25,7 +47,7 @@ export const userTable = sqliteTable('user', {
 });
 
 export const postTable = sqliteTable('post', {
-    id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
+    id:text("id").notNull().unique(),
     title: text("title").notNull(),
     description: text("description").notNull(),
     latitude:text("latitude"),
@@ -51,22 +73,6 @@ export const commemtsTable = sqliteTable('Comment', {
         .notNull()
 });
 
-export const departmentTable = sqliteTable('department',{
-    id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
-    name:text("name").notNull(),
-    scope:integer("scope").notNull(),
-    password:text("password")
-})
-
-export const department_pincode = sqliteTable('dept_pin',{
-    departmentId: integer("departmentId").references(() => departmentTable.id).notNull(),
-    pincode: text("pincode").notNull()   
-}, (table) => {
-    return {
-      pk: primaryKey({ columns: [table.departmentId, table.pincode] }),
-    }
-})
-
 export const voteTable = sqliteTable('vote',{
     userId: integer("user_id").references(() => userTable.id).notNull(),
     postId: integer("postId").references(() => postTable.id).notNull(), 
@@ -74,5 +80,5 @@ export const voteTable = sqliteTable('vote',{
 }, (table) => {
     return {
       pk: primaryKey({ columns: [table.userId, table.postId] }),
-    }
+    }
 })

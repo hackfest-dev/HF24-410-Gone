@@ -24,6 +24,7 @@
 	"dependencies": {
 		"@libsql/client": "^0.6.0",
 		"drizzle-orm": "^0.30.7",
-		"jose": "^5.2.3"
+		"jose": "^5.2.3",
+		"uuid": "^9.0.1"
 	}
 }
