@@ -6,3 +6,4 @@
 <Issue />
 <IssueForm />
 
+<Issue />

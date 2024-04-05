@@ -4,4 +4,6 @@
  
 :root{
     padding: 120px 15%;
+    min-height: 100%;
+    min-width: 100%;
 }

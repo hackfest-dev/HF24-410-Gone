@@ -58,19 +58,19 @@ export const postTable = sqliteTable('post', {
     description: text("description").notNull(),
     latitude:text("latitude").notNull(),
     longitude:text("longitude").notNull(),
-    pincode:integer("pincode"),
+    pincode:integer("pincode"),  // change to text
     image: text("image"),
     complaintType: text('complaintType', { enum: ['association', 'group', 'individual', 'individual'] }).notNull(),
     departmentType: integer("departmentId").references(() => departmentTypeTable.id).notNull(),
     userId: integer("author_id").references(() => userTable.id).notNull(),
     scope:integer("scope").default(1),
-	status: integer('status', { mode: 'boolean' }),
+	status: integer('status', { mode: 'boolean' }), // set deault value false
     createdAt: integer('created_at')
         .default(sql`CURRENT_TIMESTAMP`)
         .notNull()
 });
 
-export const commemtsTable = sqliteTable('comment', {
+export const commemtsTable = sqliteTable('comment', { //comments Typo
     id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
     userId: integer("user_id").references(() => userTable.id).notNull(),
     postId: integer("postId").references(() => postTable.id).notNull(),
