@@ -22,3 +22,26 @@ export async function load({ params }) {
   
     return { post , comments, count}
   }
+
+  export const actions = {
+    default: async ({ request, locals ,params}) => {
+
+        let user = locals.user
+        const formData = await request.formData()
+        const content = formData.get('content')?.toString()
+        
+       await db.insert(commemtsTable).values({
+        postId: Number(params.slug),
+        userId: Number(user.id),
+        content
+       })
+       
+        return {success: true }
+
+    },
+
+    upVote: async({request, locals ,params})=>{
+        let user = locals.user
+        // const formData =await 
+    }
+}
