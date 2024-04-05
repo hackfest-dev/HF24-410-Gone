@@ -1,5 +1,4 @@
 <script>
-  import Issueform from "$lib/components/issueform.svelte";
+    import Issue from "$lib/components/issue.svelte";
 </script>
 
-<Issueform />
