@@ -4,4 +4,4 @@
 </script>
 
 <Issue />
-<IssueForm />
+<IssueForm /> 
