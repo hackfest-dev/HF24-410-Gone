@@ -70,7 +70,7 @@ export const postTable = sqliteTable('post', {
         .notNull()
 });
 
-export const commemtsTable = sqliteTable('comment', { //comments Typo
+export const commentsTable = sqliteTable('comment', { //comments Typo
     id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
     userId: integer("user_id").references(() => userTable.id).notNull(),
     postId: integer("postId").references(() => postTable.id).notNull(),
