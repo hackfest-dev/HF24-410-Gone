@@ -1,6 +1,7 @@
 <script>
     import "../app.css";
     import Avatar from "$lib/components/avatar.svelte";
+    
 </script>
 
 
@@ -26,7 +27,7 @@
         left: 2rem;
         width: 70px; /* Adjust as needed */
         height: 70vh;
-        background-color: #333;
+        background-color: #1E293B;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -55,7 +56,7 @@
         padding: 2rem;
         height: 100%;
         width: 100%;
-        background-color: rgb(59, 58, 58);
+        background-color: #1E293B;
     }
     .topNavbar {
         
