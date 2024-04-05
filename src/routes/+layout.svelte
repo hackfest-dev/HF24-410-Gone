@@ -1,14 +1,12 @@
 <script>
     import "../app.css";
     import Avatar from "$lib/components/avatar.svelte";
-    
 </script>
 
-
-    <div class="topNavbar">
-        <div class="img"></div>
-        <Avatar/>
-    </div>
+<div class="topNavbar">
+    <div class="img mr-auto"></div>
+    <Avatar />
+</div>
 
 <slot />
 
@@ -20,7 +18,7 @@
         left: 2rem;
         width: 70px; /* Adjust as needed */
         height: 70vh;
-        background-color: linear-gradient(180deg, #1E293B 0%, #0F1726 100%);
+        background-color: linear-gradient(180deg, #1e293b 0%, #0f1726 100%);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -49,10 +47,9 @@
         padding: 2rem;
         height: 100%;
         width: 100%;
-        background-color: #1E293B;
+        background-color: #1e293b;
     }
     .topNavbar {
-        
         position: fixed;
         top: 0;
         left: 0;
@@ -60,7 +57,7 @@
         height: 70px;
         background-color: rgb(41, 40, 40);
         display: flex;
-        justify-content:center;
+        justify-content: center;
         align-items: center;
         padding: 0 20px;
         z-index: 1000; /* Ensure it's above other content */
