@@ -3,7 +3,7 @@
     import Avatar from "$lib/components/avatar.svelte";
 </script>
 
-<body>
+
     <div class="topNavbar">
         <div class="img"></div>
         <Avatar />
@@ -15,7 +15,7 @@
         <div class="button"></div>
         <div class="button"></div>
     </div>
-</body>
+
 <slot />
 
 <style>
@@ -52,6 +52,7 @@
         background-color: #ddd;
     }
     body {
+        padding: 2rem;
         height: 100%;
         width: 100%;
         background-color: rgb(59, 58, 58);
