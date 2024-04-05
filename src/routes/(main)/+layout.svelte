@@ -1,9 +1,8 @@
-<div class="sideNavbar">
-    <div class="button"></div>
-    <div class="button"></div>
-    <div class="button"></div>
-    <div class="button"></div>
-</div>
+<script>
+    import Navbar from "$lib/components/navbar.svelte";
+</script>
+
+<Navbar/>
 
 <slot/>
 

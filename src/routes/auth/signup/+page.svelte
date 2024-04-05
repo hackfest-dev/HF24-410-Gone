@@ -6,7 +6,7 @@
     <div>Fill all the feilds before submitting</div>
 {/if}
 
-<form action="/" method="post">
+<form  method="post">
     <input type="text" name="aadharnumber" required />
     <input type="text" name="username" required />
     <input type="password" name="password" required />
