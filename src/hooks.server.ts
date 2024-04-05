@@ -3,7 +3,7 @@ import { redirect } from '@sveltejs/kit';
 
 export async function handle({ event, resolve}) {
 
-    if (event.url.pathname.startsWith('/login')) {
+    if (event.url.pathname.startsWith('/login') || event.url.pathname.startsWith('/api')) {
         return resolve(event)
       }
 
