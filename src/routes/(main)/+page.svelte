@@ -3,5 +3,5 @@
     import IssueForm from "$lib/components/issueform.svelte";
 </script>
 
-<Issue />
+
 <IssueForm />

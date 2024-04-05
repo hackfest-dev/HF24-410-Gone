@@ -2,8 +2,7 @@
     let buttons = ["Button 1", "Button 2", "Button 3", "Button 4"];
   </script>
   
-  
-<style>
+  <style>
     .navbar {
       position: fixed;
       top: 50%;
@@ -11,7 +10,7 @@
       left: 2rem;
       width: 70px; /* Adjust as needed */
       height: 70vh;
-      background-color: #333;
+      background-color: black; /* Linear gradient background */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -44,3 +43,4 @@
     <div class="button"></div>
     <div class="button"></div>
   </div>
+  

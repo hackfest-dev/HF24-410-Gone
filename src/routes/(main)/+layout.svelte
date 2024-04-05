@@ -1,9 +1,4 @@
-<div class="sideNavbar">
-    <div class="button"></div>
-    <div class="button"></div>
-    <div class="button"></div>
-    <div class="button"></div>
-</div>
+
 
 <slot/>
 

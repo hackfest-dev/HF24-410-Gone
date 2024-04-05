@@ -1,17 +1,56 @@
 <script>
     import "../app.css";
     import Avatar from "$lib/components/avatar.svelte";
+    
 </script>
 
 
     <div class="topNavbar">
         <div class="img"></div>
-        <Avatar />
+        <Avatar/>
     </div>
 
 <slot />
 
 <style>
+    .sideNavbar {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 2rem;
+        width: 70px; /* Adjust as needed */
+        height: 70vh;
+        background-color: linear-gradient(180deg, #1E293B 0%, #0F1726 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0; /* Adjust as needed */
+        border-radius: 22px;
+    }
+
+    .button {
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+        text-decoration: none;
+        margin-bottom: 10px; /* Adjust as needed */
+    }
+
+    .button:hover {
+        background-color: #ddd;
+    }
+    body {
+        padding: 2rem;
+        height: 100%;
+        width: 100%;
+        background-color: #1E293B;
+    }
     .topNavbar {
         
         position: fixed;
