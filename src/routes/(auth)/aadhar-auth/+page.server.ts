@@ -1,6 +1,7 @@
 import { db } from "$lib/server/db/index.js";
 import { fail, redirect } from "@sveltejs/kit";
 import { citizenTable } from "$lib/server/db/schema.js";
+import { v4 as uuidv4 } from 'uuid';
 
 export const load = async ({ locals }) => {
     return {}
@@ -42,6 +43,7 @@ export const actions = {
         const citizen: Citizen = await response.json()
 
         await db.insert(citizenTable).values({
+            id:uuidv4(),
             ...citizen
         })
 
