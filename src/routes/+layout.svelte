@@ -10,13 +10,6 @@
         <Avatar />
     </div>
 
-    <div class="sideNavbar ">
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
-    </div>
-
 <slot />
 
 <style>
@@ -27,7 +20,7 @@
         left: 2rem;
         width: 70px; /* Adjust as needed */
         height: 70vh;
-        background-color: #1E293B;
+        background-color: #333;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -56,7 +49,7 @@
         padding: 2rem;
         height: 100%;
         width: 100%;
-        background-color: #1E293B;
+        background-color: rgb(59, 58, 58);
     }
     .topNavbar {
         
