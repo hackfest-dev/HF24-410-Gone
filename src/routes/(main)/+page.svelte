@@ -5,5 +5,3 @@
 
 <Issue />
 <IssueForm />
-
-<Issue />

@@ -10,7 +10,7 @@
 
 
 <form action="/?submit" method="post">
-    <input type="text" name="aadharnumber" required />
+    <input type="text" name="aadharnumber" required value={form?.aadharNumber??""}/>
     <button formaction="?/verify">Verify</button>
 
     {#if form?.verified}

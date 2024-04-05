@@ -9,7 +9,7 @@ export const load = async ({ locals }) => {
 
 export const actions = {
 
-    verify: async ({ request, locals }) => {
+    verify: async ({ request, locals,fetch}) => {
         const data = await request.formData();
         const aadhar = data.get("aadharnumber")?.toString();
 
@@ -23,12 +23,12 @@ export const actions = {
         const resData: { success: boolean } = await response.json()
 
         if (resData.success) {
-            return { verified: true };
+            return { verified: true,aadharNumber:aadhar };
         } else {
             return { verified: false };
         }
     },
-    submit: async ({ request, locals }) => {
+    submit: async ({ request, locals,fetch }) => {
         const data = await request.formData();
         const aadhar = data.get("aadharnumber")?.toString();
         const otp = data.get("otp")?.toString()
@@ -42,11 +42,13 @@ export const actions = {
         })
         const citizen: Citizen = await response.json()
 
+        console.log(citizen)
+
         await db.insert(citizenTable).values({
             id:uuidv4(),
             ...citizen
         })
 
-        return redirect(300, "/signup");
+        return redirect(300, "/auth/signup");
     }
 }

@@ -5,12 +5,10 @@
 {#if form?.missing}
     <div>Fill all the feilds before submitting</div>
 {/if}
-{#if form?.incorrect}
-    <div>Invalid Credentials</div>
-{/if}
 
-<form action="/login" method="post">
+<form action="/" method="post">
+    <input type="text" name="aadharnumber" required />
     <input type="text" name="username" required />
-    <input type="password" name="password" />
+    <input type="password" name="password" required />
     <button>Submit</button>
 </form>
