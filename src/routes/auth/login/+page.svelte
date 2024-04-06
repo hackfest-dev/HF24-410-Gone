@@ -9,13 +9,15 @@
     <div>Invalid Credentials</div>
 {/if}
 
-<div class="container" id="container">
+<div class="container" id="container" style="margin-left: 190px;">
     <div class="form-container sign-up"></div>
     <div class="form-container sign-in">
         <form method="post">
-            <h1>Sign In</h1>
+            <h1 style="font-size: 25px;">Sign In</h1>
+            <p style="margin-right:130px;">Enter your username</p>
 
             <input type="text" name="username" required />
+            <p style="margin-right:150px;">Enter the password</p>
             <input type="password" name="password" required />
             <span>→ Let's contribute to our city ←</span>
             <button>Sign In</button>
@@ -26,7 +28,7 @@
             <div class="toggle-panel toggle-right">
                 <h1>Not Registered yet??</h1>
                 <p>Register with your Aadhaar to join the community</p>
-                <a href="/auth/aadhar-auth">Sign Up</a>
+                <a href="/auth/aadhar-auth" class="button-like-link">Sign Up</a>
             </div>
         </div>
     </div>
@@ -209,5 +211,20 @@
 
     .container.active .toggle-right {
         transform: translateX(200%);
+    }
+    /* Style for the link */
+    .button-like-link {
+        display: inline-block;
+        background-color:  #1E293B; /* Button background color */
+        color: #fff; /* Button text color */
+        text-decoration: none; /* Remove underline */
+        padding: 10px 20px; /* Button padding */
+        border-radius: 8px; /* Button border radius */
+        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    /* Hover effect */
+    .button-like-link:hover {
+        background-color: #475569; /* Change background color on hover */
     }
 </style>
