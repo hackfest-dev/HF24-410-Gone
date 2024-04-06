@@ -28,6 +28,7 @@ export async function load({ url, cookies, }) {
 export const actions: Actions = {
 	default: async ({ cookies, request }) => {
 		const data = await request.formData();
+        console.log(data)
 		const deptId = data.get('id')?.toString();
 		const password = data.get('password')?.toString();
 
@@ -51,7 +52,7 @@ export const actions: Actions = {
 
 		const user:User = queryResult[0];
 
-		if (!user || !bcrypt.compareSync(password,user.password)) {
+		if (!user || password!==user.password) {
 			return fail(400, { incorrect: true});
 		}
 
