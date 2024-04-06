@@ -1,8 +1,24 @@
 <script lang="ts">
     import issue from "$lib/assets/issue.png";
     export let data;
+    import { CldOgImage, CldUploadWidget } from "svelte-cloudinary";
 
     const complaintType = ["association", "group", "individual"];
+
+
+    let info: { secure_url: string; } | null,error: { message: any; };
+    // @ts-ignore
+    function onUpload(result,widget){
+        console.log(result,widget)
+        if(result.event === 'success'){
+            info= result.info;
+        }else{ if(result.event === 'error'){
+            error = result.error;
+        }
+        widget.close();
+    }
+}
+
 </script>
 
 <div class="container">
@@ -42,11 +58,27 @@
             </select>
 
             <label for="photo">Upload Photo:</label>
+
+            <CldUploadWidget 
+            uploadPreset = 'svelte-cloudinary-unsigned' 
+            let:open 
+            onSuccess = {()=>console.log('uploaded')}
+            >
+                <button type="button" on:click={open}>Upload</button>
+            </CldUploadWidget>
+            {#if info}
+                    <img src={info.secure_url} alt="Uploaded Image" />
+                {/if}
+
+                {#if error}
+                    <p style="color: red;">{error.message}</p>
+                {/if}
+
             <input
-                type="file"
-                id="photo"
-                name="photo"
-                accept="image/*"
+                type="text"
+                name="image"
+                value = {info?.secure_url}
+                hidden
                 required
             />
             <button>Submit</button>

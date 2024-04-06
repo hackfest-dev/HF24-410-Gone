@@ -1,10 +1,11 @@
+import { toFile } from 'openai/uploads';
 import { db } from '$lib/server/db/index.js'
 import { commentsTable, postTable, voteTable } from '$lib/server/db/schema.js'
 import { error, redirect } from '@sveltejs/kit'
 import { and, eq } from 'drizzle-orm'
 
 export async function load({ params }) {
-    const post = await db.select().from(postTable).where(eq(postTable.id, Number(params.slug)))  
+    let post = await db.select().from(postTable).where(eq(postTable.id, Number(params.slug)))  
     const comments = await db.select().from(commentsTable).where(eq(commentsTable.postId, Number(params.slug)))
     let count=0;
     const votes =await db.select().from(voteTable).where(eq(voteTable.postId, Number(params.slug)))
@@ -16,11 +17,13 @@ export async function load({ params }) {
         }
     })
 
-    if (!post) {
+    if (!post[0]) {
       redirect(301, '/')
     }
+
+let newImage = post[0].image?.toString()
   
-    return { post , comments, count}
+    return { post , comments, count, newImage}
   }
 
   export const actions = {
