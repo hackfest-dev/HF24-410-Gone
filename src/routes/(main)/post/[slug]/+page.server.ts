@@ -1,7 +1,6 @@
-
 import { db } from '$lib/server/db/index.js'
 import { commentsTable, postTable, voteTable } from '$lib/server/db/schema.js'
-import { error, redirect } from '@sveltejs/kit'
+import { redirect } from '@sveltejs/kit'
 import { and, eq } from 'drizzle-orm'
 
 export async function load({ params }) {
@@ -20,7 +19,7 @@ export async function load({ params }) {
     if (!post[0]) {
       redirect(301, '/')
     }
-
+  
     return { post , comments, count}
   }
 
@@ -36,9 +35,7 @@ export async function load({ params }) {
         userId: Number(user.id),
         content
        })
-       
         return {success: true }
-
     },
 
     upVote: async({request, locals ,params})=>{
@@ -62,7 +59,7 @@ export async function load({ params }) {
                 message:"upvoted successfully"
             }
         }
-    
+
     },
 
     downVote: async({request, locals ,params})=>{

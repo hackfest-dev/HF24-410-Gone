@@ -8,15 +8,6 @@ export const userTable = sqliteTable('user', {
     type: text('type', { enum: ['Citizen', 'Department'] }).notNull(),
 })
 
-export const regionTable = sqliteTable('region', {
-    region: text("id"),
-    pincode: integer("pincode"),
-}, (table) => {
-    return {
-        pk: primaryKey({ columns: [table.region, table.pincode] }),
-    }
-})
-
 export const departmentTypeTable = sqliteTable("departmentType", {
     id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
     name: text("name").notNull().unique()
@@ -26,8 +17,17 @@ export const departmentTable = sqliteTable('department', {
     id: text("id").primaryKey(),
     name: text("name").notNull(),
     scope: integer("scope").notNull(),
-    type: text("type").references(() => departmentTypeTable.id).notNull(),
-    region: integer('region').references(() => regionTable.region).notNull(),
+    type: text("type").references(() => departmentTypeTable.id).notNull()
+})
+
+export const regionTable = sqliteTable('region', {
+    department: text("id").references(() => departmentTypeTable.id),
+    pincode: text("pincode"),
+
+}, (table) => {
+    return {
+        pk: primaryKey({ columns: [table.department, table.pincode] }),
+    }
 })
 
 export const citizenTable = sqliteTable('citizen', {

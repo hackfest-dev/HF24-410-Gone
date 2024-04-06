@@ -62,6 +62,9 @@ export const actions = {
             status: false
         })
 
+        if (!post) {
+            return fail(500, { msg: "Error creating post" })
+        }
         throw redirect(300, "/")
 
     }
