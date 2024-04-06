@@ -1,10 +1,21 @@
 <script lang="ts">
-   /*  export let url; */
-   /* export let w; */
+  export let user: User;
+
+  import { createAvatar } from "@dicebear/core";
+  import { identicon } from "@dicebear/collection";
+
+  const avatar = createAvatar(identicon, {
+    seed: user.username,
+    // ... other options
+  }).toDataUriSync();
 </script>
 
-<div class="  avatar ">
-    <div class="w-8 rounded-full">
-      <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-    </div>
-  </div>
+<img class="avatar" src={avatar} alt={user.username} />
+
+<style>
+  img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+</style>

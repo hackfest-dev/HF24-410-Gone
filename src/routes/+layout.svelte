@@ -1,11 +1,17 @@
 <script>
     import "../app.css";
     import Avatar from "$lib/components/avatar.svelte";
+    import logo from "$lib/assets/logo.svg";
+    import "iconify-icon";
+
+    export let data;
 </script>
 
 <div class="topNavbar">
-    <div class="img mr-auto"></div>
-    <Avatar />
+    <img src={logo} alt="janvani" class="logo" />
+    {#if data.user}
+        <Avatar user />
+    {/if}
 </div>
 
 <slot />
@@ -17,18 +23,15 @@
         left: 0;
         width: 100%;
         height: 70px;
-        background-color: #1e293b;
+        background-color: #1d1f23;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 20px;
-        z-index: 1000; /* Ensure it's above other content */
+        justify-content: space-between;
+        align-items: left;
+        padding: 1rem 2rem;
+        z-index: 2;
     }
 
-    .topNavbar .img {
-        max-height: 50px; /* Adjust as needed */
-        border: 2px solid rgb(255, 252, 252);
-        height: 20px;
-        width: 50px;
+    .logo {
+        height: 100%;
     }
 </style>
