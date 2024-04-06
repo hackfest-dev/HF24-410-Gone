@@ -59,7 +59,7 @@ export const postTable = sqliteTable('post', {
     latitude: text("latitude").notNull(),
     longitude: text("longitude").notNull(),
     pincode: text("pincode"),
-    image: blob('image', { mode: 'buffer' }),
+    image: text('image'),
     complaintType: text('complaintType', { enum: ['association', 'group', 'individual', 'individual'] }).notNull(),
     departmentType: integer("departmentId").references(() => departmentTypeTable.id).notNull(),
     userId: text("user").references(() => userTable.id).notNull(),
