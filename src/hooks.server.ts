@@ -14,7 +14,6 @@ export async function handle({ event, resolve}) {
       event.cookies.delete("auth_token",{path:"/"})
         throw redirect(301,"/auth/login");
     }
-    console.log("hook",user)
     event.locals.user = user;
 
     return resolve(event)

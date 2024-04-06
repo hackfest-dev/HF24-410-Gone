@@ -33,3 +33,12 @@ export async function load({ params, locals }) {
         posts
     }
 }
+
+export const actions = {
+    logout:async({cookies})=>{
+        cookies.delete("auth_token", {
+			path: "/",
+		})
+		throw redirect(301, "/login");
+    }
+}
