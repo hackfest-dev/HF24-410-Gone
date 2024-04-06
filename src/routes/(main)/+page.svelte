@@ -6,6 +6,6 @@
 
 {#each data.posts as Post}
 <a href="/post/{Post.post.id}">
-    <Issue data={Post}/>
+    <Issue post={Post.post} user={data.user}/>
     </a>
 {/each}

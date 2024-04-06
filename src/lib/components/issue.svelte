@@ -1,9 +1,9 @@
 <script lang="ts">
     import issue from "$lib/assets/issue.png";
     import Avatar from "./avatar.svelte";
-    
-    export let post:Post
-    export let user:User
+
+    export let post: Post;
+    export let user: User;
 </script>
 
 <div class="card">
@@ -19,7 +19,7 @@
         <h1 class="title">{post.title}</h1>
         <div class="author">
             <Avatar {user} />
-            <p class="author-name">{post.user?.username}</p>
+            <p class="author-name">{user?.username}</p>
         </div>
     </div>
 </div>

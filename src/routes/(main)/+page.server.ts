@@ -28,11 +28,11 @@ export async function load({ locals }) {
         //                 )));
 
         const posts = await db.select().from(postTable).leftJoin(userTable,eq(postTable.userId,userTable.id)).where(eq(postTable.pincode, citizen[0].pincode))
-        return { posts }
+        return { posts,user:user[0] }
     }else{
         const department = await db.select().from(departmentTable).where(eq(departmentTable.id, userId))
         const posts = await db.select().from(postTable).leftJoin(userTable,eq(postTable.userId,userTable.id)).where(and(eq(postTable.pincode, regionTable.pincode), eq(regionTable.department, department[0].id)))
 
-        return { posts }
+        return { posts,user:user[0] }
     }
 }
