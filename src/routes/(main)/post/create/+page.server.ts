@@ -4,11 +4,12 @@ import { fail } from '@sveltejs/kit'
 
 export async function load() {
     const deptartmentTypes =await db.select({
+        id:departmentTypeTable.id,
         name:departmentTypeTable.name
     }).from(departmentTypeTable)
     
     return { 
-        departmentTypes:deptartmentTypes.map(e=>e.name)
+        departmentTypes:deptartmentTypes
      }
   }
 
@@ -53,7 +54,7 @@ export const actions = {
             image:buffer,
             complaintType,
             departmentType: Number(departmentType),
-            userId: Number(user.id),
+            userId: user.id,
             status: false
         })
         console.log("post")

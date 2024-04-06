@@ -62,7 +62,7 @@ export const postTable = sqliteTable('post', {
     image: blob('blob', { mode: 'buffer' }),
     complaintType: text('complaintType', { enum: ['association', 'group', 'individual', 'individual'] }).notNull(),
     departmentType: integer("departmentId").references(() => departmentTypeTable.id).notNull(),
-    userId: integer("author_id").references(() => userTable.id).notNull(),
+    userId: text("user").references(() => userTable.id).notNull(),
     scope: integer("scope").default(1),
     status: integer('status', { mode: 'boolean' }).default(false),
     createdAt: integer('created_at')
