@@ -55,7 +55,7 @@
         <img
             src={issue}
             alt="jj"
-            style="height: 500px;border-top-left-radius:20px ;
+            style="height: 642px;border-top-left-radius:20px ;
       border-bottom-left-radius:20px ;"
         />
     </div>
@@ -65,21 +65,22 @@
             <input type="text" name="title" required />
 
             <label for="description">Description:</label>
-            <textarea name="description" rows="4" required></textarea>
+            <textarea name="description" rows="4" required
+            style="background-color: #1E293B;"></textarea>
 
             <label for="pin">Pin Code: </label>
             <input type="text" name="pincode" id="pincode" required />
 
             <label for="department">Department:</label>
-            <select name="departmentType" id="departmentType" required>
-                <option value="">Select Department</option>
+            <select name="departmentType" id="departmentType" required style="background-color: #1E293B;">
+                <option value="" style="background-color: #1E293B;">Select Department</option>
                 {#each data.departmentTypes as type}
-                    <option value={type.id}>{type.name}</option>
+                    <option value={type.id} style="background-color: #1E293B;">{type.name} </option>
                 {/each}
             </select>
 
-            <label for="department">Department:</label>
-            <select id="complaintType" name="complaintType" required>
+            <label for="department" >Type:</label>
+            <select id="complaintType" name="complaintType" required style="background-color: #1E293B;">
                 <option>Select Department</option>
                 {#each complaintType as type}
                     <option value={type}>{type}</option>
@@ -87,12 +88,15 @@
             </select>
 
             <label for="photo">Upload Photo:</label>
+            <div class="sidebyside">
             <input
                 type="file"
                 name="image"
                 required
+                style="margin-top: 10px;"
             />
             <button>Submit</button>
+        </div>
         </form>
     </div>
 </div>
@@ -108,6 +112,7 @@
         justify-content: space-between;
         align-items: stretch; /* Ensure equal height columns */
         margin: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add box shadow */
     }
     .form-container {
         flex: 1;
@@ -128,6 +133,7 @@
         border-right: none;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
+        
     }
     /* Rest of your styles remain the same */
     label {
@@ -159,8 +165,13 @@
         color: #fff;
         border-radius: 5px;
         cursor: pointer;
+      
     }
     button:hover {
         background-color: #0056b3;
+    }
+    .sidebyside {
+        display: flex;
+        
     }
 </style>
