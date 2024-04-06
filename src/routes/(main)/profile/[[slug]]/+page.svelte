@@ -41,15 +41,12 @@
 <style>
     .profile {
         width: 100%;
-        max-width: 50rem;
-        /* Limit width for better readability */
+        max-width: 50rem; /* Limit width for better readability */
         margin: 0 auto; /* Center horizontally */
         padding: 20px;
-        border: #334155 1px solid;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background-color: #1E293B; /* Add background color */
-       
+        background-color: #1E293B; /* Background color */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
     }
 
     .flex.items-center {
@@ -61,12 +58,12 @@
     .avatar-container {
         width: 15rem; /* Adjust the width of the avatar container */
         margin-right: 20px; /* Add space between avatar and biodata */
+        /* Add shadow */
     }
-
-   
 
     .biodata-container {
         flex: 1; /* Make the biodata container fill available space */
+         /* Add shadow */
     }
 
     .biodata {
@@ -75,11 +72,10 @@
 
     .biodata-item {
         margin-bottom: 15px; /* Increase spacing between items */
+        color: #fff; /* Change text color to white */
     }
 
     .biodata-item strong {
         margin-right: 5px; /* Add some space between label and value */
-        color: #fff; /* Change color to white */
     }
-    
 </style>
