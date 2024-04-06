@@ -7,8 +7,8 @@
 
 
 
-{#each data.posts as post}
-<a href="/post/{post.id}">
-    <Issue data={post}/>
+{#each data.posts as Post}
+<a href="/post/{Post.post.id}">
+    <Issue data={Post}/>
     </a>
 {/each}

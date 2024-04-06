@@ -2,7 +2,13 @@
     import issue from "$lib/assets/issue.png";
     import Avatar from "./avatar.svelte";
     export let data: {
-        image: string | null;
+        user: {
+        id: string;
+        username: string;
+        password: string;
+        type: "Citizen" | "Department";
+    } | null;
+    post:{ image: string | null;
         title: string;
         id: number;
         status: boolean | null;
@@ -16,17 +22,18 @@
         scope: number | null;
         createdAt: number;
     };
+}
 </script>
 
 <div class="card">
     <div class="image-container">
-        <img class="image" src={data.image} alt="Movie" style="height: 150px;" />
+        <img class="image" src={data.post.image} alt="Movie" style="height: 150px;" />
     </div>
     <div class="card-body">
-        <h1 class="title">{data.title}</h1>
+        <h1 class="title">{data.post.title}</h1>
         <div class="author">
             <Avatar />
-            <p class="author-name">@rakshithx09</p>
+            <p class="author-name">{data.user?.username}</p>
         </div>
     </div>
 </div>
