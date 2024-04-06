@@ -1,14 +1,21 @@
-<script>
+<script lang="ts">
     import Avatar from "$lib/components/avatar.svelte";
+    import Issue from "$lib/components/issue.svelte";
+    type user = (Citizen | Department) & User 
 
-    export let data;
-    const user = data.user;
+    export let data: {
+        user: User;
+        posts: Post[];
+    };
+
+    const user: User = data.user;
+    const posts: Post[] = data.posts;
 </script>
 
 <div class="profile">
     <div class="flex items-center">
         <div class="avatar-container">
-            <Avatar {user} class="avatar-image" />
+            <Avatar {user}  />
         </div>
         <div class="biodata-container">
             <div class="biodata">
@@ -19,7 +26,7 @@
                     <strong>Address:</strong> {user.address}
                 </div>
                 <div class="biodata-item">
-                    <strong>Aadhar:</strong> {user.aadhar}
+                    <strong>Aadhar:</strong> {user.aadharNo}
                 </div>
                 <div class="biodata-item">
                     <strong>Date of Birth:</strong> {user.dob}
@@ -36,7 +43,16 @@
             </div>
         </div>
     </div>
+    
+    <div>
+        {#each posts as post }
+            <Issue post={post} user={user[0]} />
+        {/each}
+    </div>
 </div>
+
+
+
 
 <style>
     .profile {
@@ -47,6 +63,7 @@
         border-radius: 10px;
         background-color: #1E293B; /* Background color */
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+        
     }
 
     .flex.items-center {
@@ -63,6 +80,7 @@
 
     .biodata-container {
         flex: 1; /* Make the biodata container fill available space */
+        margin-bottom: 30px;
          /* Add shadow */
     }
 
