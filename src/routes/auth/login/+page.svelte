@@ -172,7 +172,7 @@
         position: absolute;
         top: 0;
         left: 50%;
-        width: 50%;
+        width: 54%;
         height: 100%;
         overflow: hidden;
         transition: all 0.6s ease-in-out;
