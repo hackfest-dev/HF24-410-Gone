@@ -1,7 +1,7 @@
 <div class="navbar">
   <a href="/" class="icons"><iconify-icon icon="mdi:home"></iconify-icon></a>
-  <a href="/" class="icons"><iconify-icon icon="ic:baseline-plus"></iconify-icon></a>
-  <a href="/" class="icons"><iconify-icon icon="bx:map-pin"></iconify-icon></a>
+  <a href="/post/create" class="icons"><iconify-icon icon="ic:baseline-plus"></iconify-icon></a>
+  <a href="/map" class="icons"><iconify-icon icon="bx:map-pin"></iconify-icon></a>
   <a href="/" class="icons"><iconify-icon icon="subway:tick" ></iconify-icon></a>
 </div>
   
