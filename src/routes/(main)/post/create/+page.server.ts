@@ -52,8 +52,8 @@ export const actions = {
         const post = await db.insert(postTable).values({
             title,
             description,
-            latitude: "55",
-            longitude: "55",
+            latitude: "13.7",
+            longitude: "74.5",
             pincode: pincode,
             image: url,
             complaintType,

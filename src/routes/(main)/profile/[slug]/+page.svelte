@@ -59,9 +59,9 @@
         </div>
     </div>
     <div>
-        {#each posts as post }
+        <!-- {#each posts as post }
             <Issue data={post} user={user[0]} />
-        {/each}
+        {/each} -->
     </div>
 </div>
 
