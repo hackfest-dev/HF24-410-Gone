@@ -52,7 +52,7 @@ export const actions: Actions = {
 
 		const userId = queryResult[0].id;
 
-		const hash = bcrypt.hashSync(password.toString(), 10);
+		const hash = bcrypt.hashSync(password, 10);
 		let user;
 
 		try {

@@ -12,7 +12,7 @@
 <div class="container" id="container">
     <div class="form-container sign-up"></div>
     <div class="form-container sign-in">
-        <form>
+        <form method="post">
             <h1>Sign In</h1>
 
             <input type="text" name="username" required />
