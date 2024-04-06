@@ -1,6 +1,5 @@
 <script>
     export let data;
-    console.log(data.newImage)
 </script>
 
 <form method="post">
@@ -16,4 +15,4 @@
     <button type="submit">downvote</button>
 </form>
 
-<!-- <img src={} alt={data.newImage?.toString()}> -->
+<img src={data.post[0].image} alt={"data.newImage?.toString()"}>
