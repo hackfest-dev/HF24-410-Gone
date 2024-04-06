@@ -1,5 +1,6 @@
 <script>
     import issue from "$lib/assets/issue.png";
+    import Comment from "$lib/components/comment.svelte";
     export let data;
     let isUpvote = false;
     let isDownvote = false;
@@ -165,7 +166,9 @@
                 <button type="submit">Send</button>
             </form>
             <div>
-                <!-- {#each data} -->
+                {#each data.comments as comment}
+                    <Comment data={comment}/>
+                {/each}
             </div>
           
         </div>
