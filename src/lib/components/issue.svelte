@@ -26,7 +26,7 @@
 
 <div class="card">
     <div class="image-container">
-        <img class="image" src={data.image} alt="Movie" />
+        <img class="image" src={data.image} alt="Movie" style="height: 150px;" />
     </div>
     <div class="card-body">
         <h1 class="title">{data.title}</h1>
