@@ -46,13 +46,14 @@
             </form>
         </div>
     </div>
-
+    
     <div>
         {#each posts as post }
             <Issue post={post} user={user[0]} />
         {/each}
     </div>
 </div>
+
 
 
 
@@ -65,6 +66,7 @@
         border-radius: 10px;
         background-color: #1E293B; /* Background color */
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+        
     }
 
     .flex.items-center {
@@ -81,6 +83,7 @@
 
     .biodata-container {
         flex: 1; /* Make the biodata container fill available space */
+        margin-bottom: 30px;
          /* Add shadow */
     }
 
