@@ -46,7 +46,7 @@ export const actions: Actions = {
 			})
 			.from(userTable)
 			.where(eq(userTable.username, username))
-			.limit(1);
+			.limit(1);	
 
 		if (queryResult.length == 0) {
 			return fail(400, { incorrect: true});
@@ -55,9 +55,13 @@ export const actions: Actions = {
 		const user:User = queryResult[0];
 
 		if (!user || !bcrypt.compareSync(password,user.password)) {
-			return fail(400, { incorrect: true, isLogin: true });
+			return fail(400, { incorrect: true});
 		}
 
 		await setToken(user, cookies);
+
+		console.log("here")
+
+		throw redirect(300,"/");
 	}
 };
