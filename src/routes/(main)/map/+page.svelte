@@ -4,45 +4,50 @@
     //@ts-ignore
     import { Map, TileLayer, Marker, Popup } from "svelte-map-leaflet";
 
-    const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-
     let posts: Post[] = [];
-    let mapOptions = { center: [0, 0], zoom: 5 };
+    let mapOptions = { center: [17, 74.2], zoom: 6 };
+
     onMount(async () => {
         await fetch("/api/get-posts")
             .then((response) => response.json())
             .then((data) => {
                 posts = data.posts;
             });
-
-        let average = posts.reduce(
-            (p, c) => [c.lat + p[0], c.lang + p[1]],
-            [0, 0],
-        );
         let sum = [0, 0];
 
         for (const post of posts) {
-            (sum[0] += post.lat), (sum[1] += post.lang);
+            (sum[0] += post.lat), (sum[1] += post.long);
         }
 
-        mapOptions.center = [sum[0] / posts.length, sum[1] / posts.length];
+        mapOptions = {
+            ...mapOptions,
+            center: [
+                sum[0] / posts.length || 13.2,
+                sum[1] / posts.length || 74.5,
+            ],
+        };
     });
 </script>
 
-<div class="map">
-    <Map options={mapOptions}>
-        <TileLayer url={tileUrl}></TileLayer>
-        {#each posts as post}
-            <Marker latLng={[post.lat, post.lang]}>
-                <Popup>
-                    <div>
-                        <h1>{post.title}</h1>
-                    </div>
-                </Popup>
-            </Marker>
-        {/each}
-    </Map>
-</div>
+{#if posts.length}
+    <div class="map">
+        <Map options={mapOptions}>
+            <TileLayer
+                url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
+                name="map"
+            ></TileLayer>
+            {#each posts as post}
+                <Marker latLng={[Number(post.lat), Number(post.long)]}>
+                    <Popup name={post.title}>
+                        <div>
+                            <h1>{post.title}</h1>
+                        </div>
+                    </Popup>
+                </Marker>
+            {/each}
+        </Map>
+    </div>
+{/if}
 
 <style>
     .map {
