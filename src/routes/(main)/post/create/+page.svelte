@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
     import issue from "$lib/assets/issue.png";
     export let data;
 
@@ -38,8 +39,14 @@
         fetch("/post/create", {
             method: "POST",
             body: formData,
+        }).then((res) => {
+            if (res.ok) {
+                goto("/");
+            } else {
+                alert("Failed to submit complaint");
+            }
         })
-    }
+     };
 
 </script>
 
