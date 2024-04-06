@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import Issue from "$lib/components/issue.svelte";
     export let data;
     console.log(data)
