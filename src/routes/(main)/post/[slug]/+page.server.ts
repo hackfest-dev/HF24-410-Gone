@@ -1,7 +1,6 @@
-import { toFile } from 'openai/uploads';
 import { db } from '$lib/server/db/index.js'
 import { commentsTable, postTable, voteTable } from '$lib/server/db/schema.js'
-import { error, redirect } from '@sveltejs/kit'
+import { redirect } from '@sveltejs/kit'
 import { and, eq } from 'drizzle-orm'
 
 export async function load({ params }) {
@@ -20,10 +19,8 @@ export async function load({ params }) {
     if (!post[0]) {
       redirect(301, '/')
     }
-
-let newImage = post[0].image?.toString()
   
-    return { post , comments, count, newImage}
+    return { post , comments, count}
   }
 
   export const actions = {
@@ -38,9 +35,7 @@ let newImage = post[0].image?.toString()
         userId: Number(user.id),
         content
        })
-       
         return {success: true }
-
     },
 
     upVote: async({request, locals ,params})=>{
@@ -64,7 +59,7 @@ let newImage = post[0].image?.toString()
                 message:"upvoted successfully"
             }
         }
-    
+
     },
 
     downVote: async({request, locals ,params})=>{
