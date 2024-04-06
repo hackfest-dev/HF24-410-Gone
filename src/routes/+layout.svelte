@@ -10,7 +10,7 @@
 <div class="topNavbar">
     <img src={logo} alt="janvani" class="logo" />
     {#if data.user}
-        <a href="/profile">
+        <a href="/profile/{data.user.id}">
             <Avatar user />
         </a>
         
