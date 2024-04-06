@@ -1,6 +1,7 @@
 <script>
     import "../app.css";
     import Avatar from "$lib/components/avatar.svelte";
+    import 'iconify-icon'
 </script>
 
 <div class="topNavbar">

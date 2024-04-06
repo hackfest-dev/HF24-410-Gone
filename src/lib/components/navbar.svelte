@@ -1,12 +1,16 @@
-<script>
-    let buttons = ["Button 1", "Button 2", "Button 3", "Button 4"];
-  </script>
+<div class="navbar">
+  <a href="/" class="icons"><iconify-icon icon="mdi:home"></iconify-icon></a>
+  <a href="/" class="icons"><iconify-icon icon="ic:baseline-plus"></iconify-icon></a>
+  <a href="/" class="icons"><iconify-icon icon="bx:map-pin"></iconify-icon></a>
+  <a href="/" class="icons"><iconify-icon icon="subway:tick" ></iconify-icon></a>
+</div>
   
   <style>
     .navbar {
       position: fixed;
       top: 50%;
       transform: translateY(-50%);
+      font-size: 1.4rem;
       left: 2rem;
       width: 70px; /* Adjust as needed */
       height: 70vh;
@@ -19,7 +23,7 @@
       border-radius: 22px;
     }
   
-    .button {
+    .icons {
       width: 50px;
       height: 50px;
       background-color: #fff;
@@ -37,10 +41,5 @@
     }
   </style>
   
-  <div class="navbar">
-    <div class="button"></div>
-    <div class="button"></div>
-    <div class="button"></div>
-    <div class="button"></div>
-  </div>
+
   
