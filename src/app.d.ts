@@ -1,6 +1,6 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
-import { userTable, departmentTable, commemtsTable, citizenTable, voteTable, departmentTypeTable } from "$lib/server/db/schema";
+import { userTable, departmentTable, commemtsTable, citizenTable, voteTable, departmentTypeTable,postTable } from "$lib/server/db/schema";
 
 declare global {
 	type User = InferSelectModel<typeof userTable>
