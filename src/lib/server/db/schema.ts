@@ -22,7 +22,7 @@ export const departmentTable = sqliteTable('department', {
 
 export const regionTable = sqliteTable('region', {
     department: text("id").references(() => departmentTypeTable.id),
-    pincode: integer("pincode"),
+    pincode: text("pincode"),
 
 }, (table) => {
     return {
