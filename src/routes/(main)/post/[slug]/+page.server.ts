@@ -21,13 +21,11 @@ export async function load({ params }) {
       redirect(301, '/')
     }
 
-let newImage = post[0].image?.toString()
-  
-    return { post , comments, count, newImage}
+    return { post , comments, count}
   }
 
   export const actions = {
-    default: async ({ request, locals ,params}) => {
+    comment: async ({ request, locals ,params}) => {
 
         let user = locals.user
         const formData = await request.formData()
