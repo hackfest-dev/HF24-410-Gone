@@ -6,17 +6,19 @@
     <div>Fill all the feilds before submitting</div>
 {/if}
 
-<div class="container" id="container">
+<div class="container" id="container" style="margin-left: 190px;">
     <div class="form-container sign-up">
         
     </div>
     <div class="form-container sign-in">
         <form method="post">
-            <h1>Sign Up</h1>
+            <h1 style="font-size: 25px;">Sign Up</h1>
            
-            
+            <p style="margin-right:80px;">Enter your aadhar number</p>
             <input type="text" name="aadharnumber" required />
+            <p style="margin-right:120px">enter your username</p>
             <input type="text" name="username" required />
+            <p style="margin-right:80px">Please enter your password:</p>
             <input type="password" name="password" required />
             <button>Submit</button>
         </form>
@@ -55,6 +57,7 @@
         max-width: 100%;
         min-height: 480px;
     }
+    
 
     .container p {
         font-size: 14px;
@@ -104,14 +107,22 @@
         height: 100%;
     }
 
+    .container p {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        margin: 15px 0; /* Updated margin */
+        color: #fff;
+    }
+
     .container input {
         background-color: #222;
         border: none;
-        margin: 8px 0;
+        margin: 5px 0 10px; /* Updated margin */
         padding: 10px 15px;
         font-size: 13px;
         border-radius: 8px;
-        width: 100%;
+        width: calc(100% - 30px); /* Adjusted width to account for padding */
         outline: none;
         color: #fff;
     }

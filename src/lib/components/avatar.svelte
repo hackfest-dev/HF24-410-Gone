@@ -1,16 +1,9 @@
 <script lang="ts">
+  import { getProfileImage } from "$lib/utils";
   export let user: User;
-
-  import { createAvatar } from "@dicebear/core";
-  import { identicon } from "@dicebear/collection";
-
-  const avatar = createAvatar(identicon, {
-    seed: user.username,
-    // ... other options
-  }).toDataUriSync();
 </script>
 
-<img class="avatar" src={avatar} alt={user.username} />
+<img class="avatar" src={getProfileImage(user.username)} alt={user.username} />
 
 <style>
   img {

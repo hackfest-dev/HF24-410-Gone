@@ -10,7 +10,10 @@
 <div class="topNavbar">
     <img src={logo} alt="janvani" class="logo" />
     {#if data.user}
-        <Avatar user />
+        <a href="/profile">
+            <Avatar user />
+        </a>
+        
     {/if}
 </div>
 
@@ -33,5 +36,10 @@
 
     .logo {
         height: 100%;
+    }
+
+    a{
+        height: 100%;
+        aspect-ratio: 1;
     }
 </style>
