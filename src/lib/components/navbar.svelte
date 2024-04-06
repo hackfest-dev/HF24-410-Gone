@@ -36,7 +36,7 @@
       margin-bottom: 10px; /* Adjust as needed */
     }
   
-    .button:hover {
+    .icons:hover {
       background-color: #ddd;
     }
   </style>
