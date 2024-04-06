@@ -15,7 +15,7 @@
         />
     </div>
     <div class="form-container">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <label for="pin">Title</label>
             <input type="text" name="title" required />
 
@@ -26,7 +26,7 @@
             <input type="text" name="pincode" id="pincode" required />
 
             <label for="department">Department:</label>
-            <select name="department" id="department" required>
+            <select name="departmentType" id="departmentType" required>
                 <option value="">Select Department</option>
                 {#each data.departmentTypes as type}
                     <option value={type}>{type}</option>

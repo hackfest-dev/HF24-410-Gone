@@ -37,6 +37,7 @@
 		"bcrypt": "^5.1.1",
 		"drizzle-orm": "^0.30.7",
 		"iconify-icon": "^2.0.0",
+		"imagekit-javascript": "^3.0.0",
 		"jose": "^5.2.3",
 		"uuid": "^9.0.1"
 	}
