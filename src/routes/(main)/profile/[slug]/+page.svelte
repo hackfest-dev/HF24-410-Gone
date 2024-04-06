@@ -8,7 +8,7 @@
 <div class="profile">
     <div class="flex items-center">
         <div class="avatar-container">
-            <Avatar {user} class="avatar-image" />
+            <Avatar {user}  />
         </div>
         <div class="biodata-container">
             <div class="biodata">

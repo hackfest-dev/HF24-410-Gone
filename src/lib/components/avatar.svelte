@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getProfileImage } from "$lib/utils";
-  /* export let user: User; */
+  export let user: User;
 </script>
 
 <!-- <img class="avatar" src={getProfileImage(user.username)} alt={user.username} />

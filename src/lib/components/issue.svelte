@@ -1,6 +1,12 @@
 <script lang="ts">
     import issue from "$lib/assets/issue.png";
     import Avatar from "./avatar.svelte";
+    export let user: {
+        id: string;
+        username: string;
+        password: string;
+        type: "Citizen" | "Department";
+    }[];
     export let data: {
         image: string | null;
         title: string;
@@ -25,7 +31,7 @@
     <div class="card-body">
         <h1 class="title">{data.title}</h1>
         <div class="author">
-            <Avatar />
+            <Avatar {user} />
             <p class="author-name">@rakshithx09</p>
         </div>
     </div>
@@ -41,9 +47,12 @@
         width: 100%;
         margin-bottom: 45px;
         transition: background-color 0.3s ease;
-        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Smooth transition on hover */
-    position: relative;
-    z-index: 1;
+        transition:
+            background-color 0.3s,
+            box-shadow 0.3s,
+            transform 0.3s; /* Smooth transition on hover */
+        position: relative;
+        z-index: 1;
     }
 
     .card:hover {
@@ -68,7 +77,7 @@
     .card-body {
         flex: 1;
         padding: 20px;
-        background-color: #1E293B;
+        background-color: #1e293b;
         border-top-right-radius: 12px;
         border-bottom-right-radius: 12px;
         display: flex;
