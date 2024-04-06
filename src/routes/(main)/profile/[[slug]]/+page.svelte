@@ -2,21 +2,6 @@
     import Avatar from "$lib/components/avatar.svelte";
     import Issue from "$lib/components/issue.svelte";
     type user = (Citizen | Department) & User 
-    type Post = {
-        image: string | null;
-        title: string;
-        id: number;
-        status: boolean | null;
-        description: string;
-        latitude: string;
-        longitude: string;
-        pincode: string | null;
-        complaintType: "association" | "group" | "individual";
-        departmentType: number;
-        userId: string;
-        scope: number | null;
-        createdAt: number;
-    };
 
     export let data: {
         user: User;
@@ -58,12 +43,15 @@
             </div>
         </div>
     </div>
+
     <div>
-        <!-- {#each posts as post }
-            <Issue data={post} user={user[0]} />
-        {/each} -->
+        {#each posts as post }
+            <Issue post={post} user={user[0]} />
+        {/each}
     </div>
 </div>
+
+
 
 <style>
     .profile {

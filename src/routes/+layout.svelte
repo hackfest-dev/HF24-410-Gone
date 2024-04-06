@@ -13,7 +13,6 @@
         <a href="/profile/{data.user.id}">
             <Avatar user={data.user} />
         </a>
-        
     {/if}
 </div>
 
@@ -38,7 +37,7 @@
         height: 100%;
     }
 
-    a{
+    a {
         height: 100%;
         aspect-ratio: 1;
     }

@@ -2,39 +2,24 @@
     import issue from "$lib/assets/issue.png";
     import Avatar from "./avatar.svelte";
     
-    export let data: {
-        user: {
-        id: string;
-        username: string;
-        password: string;
-        type: "Citizen" | "Department";
-    } | null;
-    post:{ image: string | null;
-        title: string;
-        id: number;
-        status: boolean | null;
-        description: string;
-        latitude: string;
-        longitude: string;
-        pincode: string | null;
-        complaintType: "association" | "group" | "individual";
-        departmentType: number;
-        userId: string;
-        scope: number | null;
-        createdAt: number;
-    };
-}
+    export let post:Post
+    export let user:User
 </script>
 
 <div class="card">
     <div class="image-container">
-        <img class="image" src={data.post.image} alt="Movie" style="height: 150px;" />
+        <img
+            class="image"
+            src={post.image}
+            alt="Movie"
+            style="height: 150px;"
+        />
     </div>
     <div class="card-body">
-        <h1 class="title">{data.post.title}</h1>
+        <h1 class="title">{post.title}</h1>
         <div class="author">
-            <Avatar user={data.user}/>
-            <p class="author-name">{data.user?.username}</p>
+            <Avatar {user} />
+            <p class="author-name">{post.user?.username}</p>
         </div>
     </div>
 </div>
