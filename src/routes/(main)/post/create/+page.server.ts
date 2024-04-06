@@ -1,16 +1,15 @@
 import { db } from '$lib/server/db/index.js'
 import { departmentTypeTable, postTable } from '$lib/server/db/schema.js'
 import { fail } from '@sveltejs/kit'
-import { v4 as uuidv4 } from 'uuid';
-import ImageKit from "imagekit-javascript"
 
 export async function load() {
     const deptartmentTypes =await db.select({
+        id:departmentTypeTable.id,
         name:departmentTypeTable.name
     }).from(departmentTypeTable)
     
     return { 
-        departmentTypes:deptartmentTypes.map(e=>e.name)
+        departmentTypes:deptartmentTypes
      }
   }
 
@@ -35,53 +34,37 @@ export const actions = {
             console.log("first")
             return fail(400, { msg: "Please provide all values" })
         }
-        
+       let buffer:Buffer;
+      console.log(file)
+      
+      const arrayBuffer = await file.arrayBuffer(); // Attempt to retrieve ArrayBuffer
+      console.log(arrayBuffer); // Check if file object is valid
 
+      if (arrayBuffer instanceof ArrayBuffer) { // Check if ArrayBuffer is valid
+        buffer = Buffer.from(arrayBuffer); // Convert ArrayBuffer to Buffer
+        console.log(buffer)
+            // Further processing with the buffer...
 
-let imagekit = new ImageKit({
-    publicKey : "public_OASJi4CcQCOB0571dsj0s5jyxhs=",
-    urlEndpoint : "https://ik.imagekit.io/htm1s1rdh",
-});
-
-// URL generation
-// let imageURL = imagekit.url({
-//     path : file,
-//     transformation : [{
-//         "height" : "300",
-//         "width" : "400"
-//     }]
-// });
-
-// Upload function internally uses the ImageKit.io javascript SDK
-function upload() {
-    imagekit.upload({
-        file : file,
-        fileName : uuidv4(),
-        tags : ["tag1"]
-    }, function(err, result) {
-        console.log(arguments);
-        console.log(imagekit.url({
-            src: result.url,
-            transformation : [{ height: 300, width: 400}]
-        }));
-    })
-}
-
-upload()
-
-        // const post = await db.insert(postTable).values({
-        //     title,
-        //     description,
-        //     latitude:"55",
-        //     longitude:"55",
-        //     pincode:pincode,
-        //     image:b64encoded,
-        //     complaintType,
-        //     departmentType: Number(departmentType),
-        //     userId: Number(user.id),
-        //     status: false
-        // })
+        const post = await db.insert(postTable).values({
+            title,
+            description,
+            latitude:"55",
+            longitude:"55",
+            pincode:pincode,
+            image:buffer,
+            complaintType,
+            departmentType: Number(departmentType),
+            userId: user.id,
+            status: false
+        })
         console.log("post")
-        return { success: true }
+        return { post,success: true }
+        } else {
+            console.error("Failed to retrieve valid ArrayBuffer from file.");
+            return {success:false}
+        }
+   
+
+       
     }
 }

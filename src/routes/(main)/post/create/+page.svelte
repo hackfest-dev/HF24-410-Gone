@@ -29,7 +29,7 @@
             <select name="departmentType" id="departmentType" required>
                 <option value="">Select Department</option>
                 {#each data.departmentTypes as type}
-                    <option value={type}>{type}</option>
+                    <option value={type.id}>{type.name}</option>
                 {/each}
             </select>
 
