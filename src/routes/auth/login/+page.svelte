@@ -12,7 +12,7 @@
 <div class="container" id="container">
     <div class="form-container sign-up"></div>
     <div class="form-container sign-in">
-        <form>
+        <form method="post">
             <h1>Sign In</h1>
 
             <input type="text" name="username" required />
@@ -154,7 +154,7 @@
         position: absolute;
         top: 0;
         left: 50%;
-        width: 50%;
+        width: 54%;
         height: 100%;
         overflow: hidden;
         transition: all 0.6s ease-in-out;

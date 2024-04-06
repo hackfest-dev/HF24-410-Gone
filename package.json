@@ -31,9 +31,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@dicebear/collection": "^8.0.1",
+		"@dicebear/core": "^8.0.1",
 		"@libsql/client": "^0.6.0",
 		"bcrypt": "^5.1.1",
 		"drizzle-orm": "^0.30.7",
+		"iconify-icon": "^2.0.0",
 		"jose": "^5.2.3",
 		"uuid": "^9.0.1"
 	}
