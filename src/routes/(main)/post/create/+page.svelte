@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import issue from "$lib/assets/issue.png";
+    import image from "$lib/assets/issue1.png";
     export let data;
 
     const complaintType = ["association", "group", "individual"];
@@ -53,7 +53,7 @@
 <div class="container">
     <div class="picture">
         <img
-            src={issue}
+            src={image}
             alt="jj"
             style="height: 642px;border-top-left-radius:20px ;
       border-bottom-left-radius:20px ;"
