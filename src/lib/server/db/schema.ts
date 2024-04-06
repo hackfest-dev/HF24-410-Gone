@@ -9,7 +9,7 @@ export const userTable = sqliteTable('user', {
 })
 
 export const regionTable = sqliteTable('region', {
-    region: text("id"),
+    region: integer('id', { mode: 'number' }),
     pincode: integer("pincode"),
 }, (table) => {
     return {
