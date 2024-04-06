@@ -58,12 +58,12 @@
     .avatar-container {
         width: 15rem; /* Adjust the width of the avatar container */
         margin-right: 20px; /* Add space between avatar and biodata */
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
+        /* Add shadow */
     }
 
     .biodata-container {
         flex: 1; /* Make the biodata container fill available space */
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
+         /* Add shadow */
     }
 
     .biodata {
