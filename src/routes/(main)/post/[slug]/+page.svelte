@@ -4,6 +4,7 @@
     let isUpvote = false;
     let isDownvote = false;
     let isCommentsClicked = false;
+    console.log(data)
     console.log(issue);
 </script>
 
@@ -163,10 +164,10 @@
                 />
                 <button type="submit">Send</button>
             </form>
-
-           <!--  <form action="/?downVote" method="post">
-                <button type="submit">downvote</button>
-            </form> -->
+            <div>
+                <!-- {#each data} -->
+            </div>
+          
         </div>
     {/if}
 </div>

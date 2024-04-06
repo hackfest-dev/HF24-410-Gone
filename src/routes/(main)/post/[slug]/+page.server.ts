@@ -32,7 +32,7 @@ export async function load({ params }) {
         
        await db.insert(commentsTable).values({
         postId: Number(params.slug),
-        userId: Number(user.id),
+        userId: user.id,
         content
        })
         return {success: true }
