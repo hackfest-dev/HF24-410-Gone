@@ -32,7 +32,7 @@
         <h1 class="title">{data.title}</h1>
         <div class="author">
             <Avatar {user} />
-            <p class="author-name">@rakshithx09</p>
+            <p class="author-name">{user[0].id}</p>
         </div>
     </div>
 </div>

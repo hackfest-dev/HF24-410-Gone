@@ -1,8 +1,30 @@
-<script>
+<script lang="ts">
     import Avatar from "$lib/components/avatar.svelte";
+    import Issue from "$lib/components/issue.svelte";
+    type user = (Citizen | Department) & User 
+    type Post = {
+        image: string | null;
+        title: string;
+        id: number;
+        status: boolean | null;
+        description: string;
+        latitude: string;
+        longitude: string;
+        pincode: string | null;
+        complaintType: "association" | "group" | "individual";
+        departmentType: number;
+        userId: string;
+        scope: number | null;
+        createdAt: number;
+    };
 
-    export let data;
-    const user = data.user;
+    export let data: {
+        user: User;
+        posts: Post[];
+    };
+
+    const user: User = data.user;
+    const posts: Post[] = data.posts;
 </script>
 
 <div class="profile">
@@ -19,7 +41,7 @@
                     <strong>Address:</strong> {user.address}
                 </div>
                 <div class="biodata-item">
-                    <strong>Aadhar:</strong> {user.aadhar}
+                    <strong>Aadhar:</strong> {user.aadharNo}
                 </div>
                 <div class="biodata-item">
                     <strong>Date of Birth:</strong> {user.dob}
@@ -35,6 +57,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+        {#each posts as post }
+            <Issue data={post} user={user[0]} />
+        {/each}
     </div>
 </div>
 
