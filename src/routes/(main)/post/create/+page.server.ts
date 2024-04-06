@@ -1,6 +1,6 @@
 import { db } from '$lib/server/db/index.js'
 import { departmentTypeTable, postTable } from '$lib/server/db/schema.js'
-import { fail } from '@sveltejs/kit'
+import { fail, redirect } from '@sveltejs/kit'
 
 export async function load() {
     const deptartmentTypes =await db.select({
@@ -57,8 +57,8 @@ export const actions = {
             userId: user.id,
             status: false
         })
-        console.log("post")
-        return { post,success: true }
+        
+        throw redirect(300,"/")
         } else {
             console.error("Failed to retrieve valid ArrayBuffer from file.");
             return {success:false}

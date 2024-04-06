@@ -9,8 +9,7 @@
     <div>Invalid Credentials</div>
 {/if}
 
-<div class="container" id="container" style="margin-left: 190px;">
-    <div class="form-container sign-up"></div>
+<div class="container" style="margin-left: 190px;">
     <div class="form-container sign-in">
         <form method="post">
             <h1 style="font-size: 25px;">Sign In</h1>
@@ -35,7 +34,6 @@
 </div>
 
 <style>
-
     .container {
         background-color: #1e293b; /* Match body background */
         border-radius: 30px;
@@ -215,7 +213,7 @@
     /* Style for the link */
     .button-like-link {
         display: inline-block;
-        background-color:  #1E293B; /* Button background color */
+        background-color: #1e293b; /* Button background color */
         color: #fff; /* Button text color */
         text-decoration: none; /* Remove underline */
         padding: 10px 20px; /* Button padding */
