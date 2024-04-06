@@ -1,23 +1,45 @@
 <script lang="ts">
     import issue from "$lib/assets/issue.png";
     export let data;
-    import { CldOgImage, CldUploadWidget } from "svelte-cloudinary";
 
     const complaintType = ["association", "group", "individual"];
 
-
-    let info: { secure_url: string; } | null,error: { message: any; };
-    // @ts-ignore
-    function onUpload(result,widget){
-        console.log(result,widget)
-        if(result.event === 'success'){
-            info= result.info;
-        }else{ if(result.event === 'error'){
-            error = result.error;
-        }
-        widget.close();
+    function readFileAsBase64(fileObj:File) {
+        return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+    
+        fileReader.onload = function(event) {
+            // 'result' property contains the base64-encoded string
+            const base64Image = event!.target!.result;
+    
+            // Resolve the Promise with the base64 image
+            resolve(base64Image);
+        };
+    
+        // Handle errors
+        fileReader.onerror = function(error) {
+            reject(error);
+        };
+    
+        // Read the file as a data URL
+        fileReader.readAsDataURL(fileObj);
+        });
     }
-}
+
+    async function handleSubmit(event:SubmitEvent) {
+        event.preventDefault();
+        const form = event.target as HTMLFormElement;
+
+        const formData = new FormData(form);
+
+        const image = formData.get("image") as File;
+        const base64Image = await readFileAsBase64(image) as string;
+        formData.set("image", base64Image);
+        fetch("/post/create", {
+            method: "POST",
+            body: formData,
+        })
+    }
 
 </script>
 
@@ -31,7 +53,7 @@
         />
     </div>
     <div class="form-container">
-        <form method="post" enctype="multipart/form-data">
+        <form  on:submit={handleSubmit}> 
             <label for="pin">Title</label>
             <input type="text" name="title" required />
 
@@ -58,27 +80,9 @@
             </select>
 
             <label for="photo">Upload Photo:</label>
-
-            <CldUploadWidget 
-            uploadPreset = 'svelte-cloudinary-unsigned' 
-            let:open 
-            onSuccess = {()=>console.log('uploaded')}
-            >
-                <button type="button" on:click={open}>Upload</button>
-            </CldUploadWidget>
-            {#if info}
-                    <img src={info.secure_url} alt="Uploaded Image" />
-                {/if}
-
-                {#if error}
-                    <p style="color: red;">{error.message}</p>
-                {/if}
-
             <input
-                type="text"
+                type="file"
                 name="image"
-                value = {info?.secure_url}
-                hidden
                 required
             />
             <button>Submit</button>
