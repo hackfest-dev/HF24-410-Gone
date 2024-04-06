@@ -26,7 +26,7 @@
         <h1 class="title">{data.title}</h1>
         <div class="author">
             <Avatar />
-            <p class="author-name">@rakshithx09</p>
+            <p class="author-name">{data.userId}</p>
         </div>
     </div>
 </div>
