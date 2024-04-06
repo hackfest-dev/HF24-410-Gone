@@ -10,6 +10,8 @@ export async function load({ params, locals }) {
         return { success: false }
     }
 
+    const posts = await db.select().from(postTable).where(eq(postTable.userId, id))
+
     let userData: Citizen[] | Department[];
     if (user[0].type === "Citizen") {
         userData = await db.select().from(citizenTable).where(eq(citizenTable.id, id)).limit(1)
@@ -27,6 +29,7 @@ export async function load({ params, locals }) {
     }
 
     return {
-        user: response
+        user: response,
+        posts
     }
 }

@@ -11,4 +11,8 @@
     object-fit: cover;
     border-radius: 50%;
   }
+  .avatar{
+    width: 2rem;
+    height: 2rem;
+  }
 </style>

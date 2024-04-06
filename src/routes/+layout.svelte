@@ -11,7 +11,7 @@
     <img src={logo} alt="janvani" class="logo" />
     {#if data.user}
         <a href="/profile/{data.user.id}">
-            <Avatar user = data.user />
+            <Avatar user={data.user} />
         </a>
         
     {/if}

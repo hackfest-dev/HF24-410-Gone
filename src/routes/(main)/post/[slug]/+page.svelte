@@ -176,7 +176,5 @@
 </div>
 
 <style>
-    .card {
-        border-radius: 16px 16px 0 0;
-    }
+
 </style>

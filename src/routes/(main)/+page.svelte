@@ -1,14 +1,11 @@
 <script lang="ts">
     import Issue from "$lib/components/issue.svelte";
     export let data;
-    console.log(data)
+    console.log(data);
 </script>
 
-
-
-
-{#each data.posts as post}
-<a href="/post/{post.id}">
-    <Issue data={post}/>
+{#each data.posts as Post}
+<a href="/post/{Post.post.id}">
+    <Issue data={Post}/>
     </a>
 {/each}
