@@ -14,7 +14,7 @@
       left: 2rem;
       width: 70px; /* Adjust as needed */
       height: 70vh;
-      background-color: black; /* Linear gradient background */
+      background-color: rgb(244, 241, 241); /* Linear gradient background */
       display: flex;
       flex-direction: column;
       align-items: center;
