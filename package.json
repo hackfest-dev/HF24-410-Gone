@@ -39,6 +39,7 @@
 		"iconify-icon": "^2.0.0",
 		"imagekit-javascript": "^3.0.0",
 		"jose": "^5.2.3",
+		"svelte-map-leaflet": "^0.5.0",
 		"uuid": "^9.0.1"
 	}
 }
