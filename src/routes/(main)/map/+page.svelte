@@ -46,8 +46,11 @@
 
 <style>
     .map {
-        width: 100%;
+        width: 67rem;
         height: 500px;
-        border-radius: 5px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background-color: #f0f0f0;
+        overflow: hidden;
     }
 </style>
