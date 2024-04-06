@@ -24,7 +24,7 @@ export async function load({ params }) {
   }
 
   export const actions = {
-    default: async ({ request, locals ,params}) => {
+    comment: async ({ request, locals ,params}) => {
 
         let user = locals.user
         const formData = await request.formData()
@@ -32,7 +32,7 @@ export async function load({ params }) {
         
        await db.insert(commentsTable).values({
         postId: Number(params.slug),
-        userId: Number(user.id),
+        userId: user.id,
         content
        })
         return {success: true }
