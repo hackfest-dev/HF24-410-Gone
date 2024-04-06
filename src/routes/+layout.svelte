@@ -11,9 +11,8 @@
     <img src={logo} alt="janvani" class="logo" />
     {#if data.user}
         <a href="/profile/{data.user.id}">
-            <Avatar user />
+            <Avatar user={data.user} />
         </a>
-        
     {/if}
 </div>
 
@@ -38,7 +37,7 @@
         height: 100%;
     }
 
-    a{
+    a {
         height: 100%;
         aspect-ratio: 1;
     }

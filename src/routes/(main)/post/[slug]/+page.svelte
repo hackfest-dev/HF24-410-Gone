@@ -204,7 +204,5 @@
 </div>
 
 <style>
-    .bg-base-100 {
-        /* Add your styles here */
-    }
+
 </style>
