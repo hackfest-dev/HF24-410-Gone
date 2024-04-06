@@ -1,4 +1,4 @@
-/* import { verifyAuthJWT } from '$lib/server/auth/jwt';
+import { verifyAuthJWT } from '$lib/server/auth/jwt';
 import { redirect } from '@sveltejs/kit';
 
 export async function handle({ event, resolve}) {
@@ -12,10 +12,10 @@ export async function handle({ event, resolve}) {
 
     if(!user){
       event.cookies.delete("auth_token",{path:"/"})
-        throw redirect(301,"/login");
+        throw redirect(301,"/auth/login");
     }
 
     event.locals.user = user;
 
     return resolve(event)
-  } */
+  }

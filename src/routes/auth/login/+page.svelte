@@ -9,19 +9,15 @@
     <div>Invalid Credentials</div>
 {/if}
 
-
 <div class="container" id="container">
-    <div class="form-container sign-up">
-        
-    </div>
+    <div class="form-container sign-up"></div>
     <div class="form-container sign-in">
         <form>
             <h1>Sign In</h1>
-           
-            
+
             <input type="text" name="username" required />
-    <input type="password" name="password" required />
-            <a href="#">→ Let's contribute to our city ←</a>
+            <input type="password" name="password" required />
+            <span>→ Let's contribute to our city ←</span>
             <button>Sign In</button>
         </form>
     </div>
@@ -30,27 +26,16 @@
             <div class="toggle-panel toggle-right">
                 <h1>Not Registered yet??</h1>
                 <p>Register with your Aadhaar to join the community</p>
-                <button style= "background-color:#1E293B">Sign Up</button>
+                <a href="/auth/aadhar-auth">Sign Up</a>
             </div>
         </div>
     </div>
 </div>
 
-
 <style>
-    body {
-        background-color: #1E293B;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 100vh;
-        margin: 0; /* Remove default body margin */
-         /* Added line */
-    }
 
     .container {
-        background-color: #1E293B; /* Match body background */
+        background-color: #1e293b; /* Match body background */
         border-radius: 30px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
         position: relative;
@@ -65,11 +50,6 @@
         line-height: 20px;
         letter-spacing: 0.3px;
         margin: 20px 0;
-        color: #fff;
-    }
-
-    .container span {
-        font-size: 12px;
         color: #fff;
     }
 
@@ -99,7 +79,7 @@
     }
 
     .container form {
-        background-color: #1E293B; /* Match body background */
+        background-color: #1e293b; /* Match body background */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -153,12 +133,14 @@
     }
 
     @keyframes move {
-        0%, 49.99% {
+        0%,
+        49.99% {
             opacity: 0;
             z-index: 1;
         }
 
-        50%, 100% {
+        50%,
+        100% {
             opacity: 1;
             z-index: 5;
         }
@@ -229,4 +211,3 @@
         transform: translateX(200%);
     }
 </style>
-
