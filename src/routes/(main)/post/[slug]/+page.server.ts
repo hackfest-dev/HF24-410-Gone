@@ -1,4 +1,4 @@
-import { toFile } from 'openai/uploads';
+
 import { db } from '$lib/server/db/index.js'
 import { commentsTable, postTable, voteTable } from '$lib/server/db/schema.js'
 import { error, redirect } from '@sveltejs/kit'
